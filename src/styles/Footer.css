@@ -1,0 +1,122 @@
+.footer{
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+.footer h2{
+    margin-bottom:10px;
+}
+
+.footer p{
+    margin:8px 0;
+}
+/* Footer Dark Mode */
+
+body.dark footer,
+body.dark .footer {
+    background: #1e1e1e !important;
+    color: white !important;
+}
+
+body.dark .footer h2,
+body.dark .footer h3,
+body.dark .footer p,
+body.dark .footer a,
+body.dark .footer span {
+    color: white !important;
+}
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+
+  .footer {
+    padding: 30px 20px;
+  }
+
+  .footer h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .footer p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 8px 0;
+  }
+
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+
+  .footer {
+    padding: 25px 15px;
+  }
+
+  .footer h2 {
+    font-size: 22px;
+  }
+
+  .footer p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+}
+.footer-links{
+    margin:20px 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.footer-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#facc15;
+}
+
+.copyright{
+    margin-top:15px;
+    font-size:14px;
+    opacity:.9;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.footer{
+    padding:30px 20px;
+}
+
+.footer h2{
+    font-size:26px;
+}
+
+.footer-links{
+    flex-direction:column;
+    gap:12px;
+}
+
+.footer-links a{
+    font-size:16px;
+}
+
+.copyright{
+    font-size:13px;
+}
+
+}

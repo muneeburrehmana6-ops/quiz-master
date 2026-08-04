@@ -1,0 +1,91 @@
+.leaderboard-page{
+    padding:60px 10%;
+    min-height:100vh;
+    background:#f5f7fb;
+}
+
+.leaderboard-page h1{
+    text-align:center;
+    margin-bottom:40px;
+    color:#2563eb;
+}
+
+.leaderboard-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.leaderboard-table th{
+    background:#2563eb;
+    color:white;
+    padding:18px;
+}
+
+.leaderboard-table td{
+    padding:16px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+.leaderboard-table tr:hover{
+    background:#f1f5ff;
+}
+/* ==========================================
+   Responsive Design
+========================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+
+  .leaderboard-page {
+    padding: 40px 20px;
+  }
+
+  .leaderboard-page h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .leaderboard-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+
+  .leaderboard-page {
+    padding: 30px 15px;
+  }
+
+  .leaderboard-page h1 {
+    font-size: 24px;
+  }
+
+  .leaderboard-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-radius: 10px;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+}

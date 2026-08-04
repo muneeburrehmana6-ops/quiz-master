@@ -1,0 +1,106 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.privacy-page{
+    min-height:100vh;
+    background:linear-gradient(135deg,#eef4ff,#f8faff);
+    padding:70px 10%;
+}
+
+.privacy-container{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    padding:45px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.privacy-container h1{
+    text-align:center;
+    color:#2563eb;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.privacy-date{
+    text-align:center;
+    color:#888;
+    margin-bottom:35px;
+    font-size:15px;
+}
+
+.privacy-container section{
+    margin-bottom:30px;
+}
+
+.privacy-container h2{
+    color:#2563eb;
+    margin-bottom:12px;
+    font-size:25px;
+}
+
+.privacy-container p{
+    color:#555;
+    line-height:1.8;
+    font-size:17px;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media(max-width:768px){
+
+.privacy-page{
+    padding:50px 20px;
+}
+
+.privacy-container{
+    padding:30px;
+}
+
+.privacy-container h1{
+    font-size:34px;
+}
+
+.privacy-container h2{
+    font-size:22px;
+}
+
+.privacy-container p{
+    font-size:16px;
+}
+
+}
+
+@media(max-width:480px){
+
+.privacy-page{
+    padding:35px 15px;
+}
+
+.privacy-container{
+    padding:22px;
+}
+
+.privacy-container h1{
+    font-size:28px;
+}
+
+.privacy-container h2{
+    font-size:20px;
+}
+
+.privacy-container p{
+    font-size:15px;
+}
+
+.privacy-date{
+    font-size:13px;
+}
+
+}

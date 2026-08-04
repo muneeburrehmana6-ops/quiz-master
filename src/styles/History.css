@@ -1,0 +1,139 @@
+.history-page{
+    padding:60px 10%;
+    min-height:100vh;
+    background:#f5f7fb;
+}
+
+.history-page h1{
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:35px;
+}
+
+.history-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.history-table th{
+    background:#2563eb;
+    color:white;
+    padding:16px;
+}
+
+.history-table td{
+    padding:15px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+.history-table tr:hover{
+    background:#f8f9ff;
+}
+
+.clear-btn{
+    display:block;
+    margin:30px auto;
+    padding:14px 35px;
+    background:#dc2626;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.clear-btn:hover{
+    background:#b91c1c;
+}
+.delete-history-btn{
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    margin:20px 0;
+    transition:.3s;
+}
+
+.delete-history-btn:hover{
+    background:#dc2626;
+}
+/* ==========================================
+   Responsive Design
+========================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+
+  .history-page {
+    padding: 40px 20px;
+  }
+
+  .history-page h1 {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+
+  .history-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .history-table th,
+  .history-table td {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .clear-btn,
+  .delete-history-btn {
+    width: 100%;
+    max-width: 320px;
+    font-size: 15px;
+    padding: 12px;
+  }
+
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+
+  .history-page {
+    padding: 30px 15px;
+  }
+
+  .history-page h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .history-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-radius: 10px;
+  }
+
+  .history-table th,
+  .history-table td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .clear-btn,
+  .delete-history-btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+    margin-top: 15px;
+  }
+
+}

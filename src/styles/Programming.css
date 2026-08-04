@@ -1,0 +1,65 @@
+.programming-page {
+    padding: 60px 8%;
+    text-align: center;
+    min-height: 100vh;
+    background: #f5f7fb;
+}
+
+.programming-page h1 {
+    font-size: 40px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.programming-page p {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+.programming-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 30px;
+}
+
+.programming-card {
+    background: white;
+    border-radius: 15px;
+    padding: 35px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.1);
+    transition: .3s;
+}
+
+.programming-card:hover {
+    transform: translateY(-8px);
+}
+
+.programming-card h2 {
+    font-size: 55px;
+}
+
+.programming-card h3 {
+    margin: 20px 0;
+    color: #222;
+}
+
+.programming-card p {
+    color: gray;
+}
+
+.programming-card button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 13px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.programming-card button:hover {
+    background: #1d4ed8;
+}
