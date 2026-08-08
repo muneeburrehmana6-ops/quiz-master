@@ -1,19 +1,31 @@
 import { useState } from "react";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../firebase";
 import "../styles/Login.css";
 
 function ForgotPassword() {
-  const [username, setUsername] = useState("");
-  const [newPassword, setNewPassword] = useState("");
+  const [email, setEmail] = useState("");
 
-  const handleReset = () => {
-    if (!username || !newPassword) {
-      alert("Please fill all fields");
+  const handleReset = async () => {
+    if (!email) {
+      alert("Please enter your email");
       return;
     }
 
-    localStorage.setItem(`${username}_password`, newPassword);
+    try {
+      await sendPasswordResetEmail(auth, email);
 
-    alert("Password Updated Successfully ✅");
+      alert("Password reset link sent to your email ✅");
+
+    } catch (error) {
+      if (error.code === "auth/user-not-found") {
+        alert("No account found with this email.");
+      } else if (error.code === "auth/invalid-email") {
+        alert("Invalid email address.");
+      } else {
+        alert(error.message);
+      }
+    }
   };
 
   return (
@@ -22,27 +34,20 @@ function ForgotPassword() {
 
         <h1>Forgot Password</h1>
 
-        <p>Reset your password</p>
+        <p>Enter your email to reset your password</p>
 
         <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-
-        <input
-          type="password"
-          placeholder="New Password"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
 
         <button
           className="login-btn"
           onClick={handleReset}
         >
-          Reset Password
+          Send Reset Link
         </button>
 
       </div>

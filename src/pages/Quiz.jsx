@@ -1,3 +1,6 @@
+import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { auth } from "../firebase";
 import jsPDF from "jspdf";
 import "../styles/Quiz.css";
 import { useState, useEffect } from "react";
@@ -7,10 +10,57 @@ import htmlQuestions from "../data/html";
 import cssQuestions from "../data/css";
 import javascriptQuestions from "../data/javascript";
 import reactQuestions from "../data/react";
+import pakistanGK from "../data/pakistanGK";
+import worldGK from "../data/worldGK";
+import islamicStudies from "../data/islamicStudies";
+import sports from "../data/sports";
+import aiBasics from "../data/aiBasics";
+import machineLearning from "../data/machineLearning";
+import deepLearning from "../data/deepLearning";
+import nlp from "../data/nlp";
+import computerVision from "../data/computerVision";
+import englishGrammar from "../data/englishGrammar";
+import tenses from "../data/tenses";
+import vocabulary from "../data/vocabulary";
+import synonymsAntonyms from "../data/synonymsAntonyms";
+import idioms from "../data/idioms";
+import algebra from "../data/algebra";
+import geometry from "../data/geometry";
+import trigonometry from "../data/trigonometry";
+import calculus from "../data/calculus";
+import statistics from "../data/statistics";
+import physics from "../data/physics";
+import chemistry from "../data/chemistry";
+import biology from "../data/biology";
+import generalScience from "../data/generalScience";
+import spaceScience from "../data/spaceScience";
+import bootstrapQuestions from "../data/bootstrap";
+import tailwindQuestions from "../data/tailwind";
+import jqueryQuestions from "../data/jquery";
+import typescriptQuestions from "../data/typescript";
+import firebaseQuestions from "../data/firebase";
+import mongodbQuestions from "../data/mongodb";
+import mysqlQuestions from "../data/mysql";
+import phpQuestions from "../data/php";
+import pythonQuestions from "../data/python";
+import javaQuestions from "../data/java";
+import cppQuestions from "../data/cpp";
+import flutterQuestions from "../data/flutter";
+import gitGithubQuestions from "../data/gitGithub";
+import webDevelopmentQuestions from "../data/webDevelopment";
+import cyberSecurityQuestions from "../data/cyberSecurity";
+import linuxQuestions from "../data/linux";
+import restApiQuestions from "../data/restApi";
+import dataScienceQuestions from "../data/dataScience";
+import machineLearningQuestions from "../data/mach-learn";
+import devOpsQuestions from "../data/devops";
+import nodejsQuestions from "../data/nodejs";
 
 import cProgramming from "../programming/cProgramming";
 import dataStructure from "../programming/dataStructure";
 import algorithms from "../programming/algorithms";
+import objectOrientedProgramming from "../programming/objectOrientedProgramming";
+import databaseSystems from "../programming/databaseSystems";
 
 function Quiz() {
   const { category } = useParams();
@@ -47,10 +97,152 @@ function Quiz() {
     case "algorithms":
       questions = algorithms;
       break;
-
+      case "pakistan-gk":
+  questions = pakistanGK;
+  break;
+  case "world-gk":
+  questions = worldGK;
+  break;
+  case "islamic-studies":
+  questions = islamicStudies;
+  break;
+  case "sports":
+  questions = sports;
+  break;
+  case "ai-basics":
+  questions = aiBasics;
+  break;
+  case "machine-learning":
+  questions = machineLearning;
+  break;
+  case "deep-learning":
+  questions = deepLearning;
+  break;
+  case "nlp":
+  questions = nlp;
+  break;
+  case "computer-vision":
+  questions = computerVision;
+  break;
+  case "english-grammar":
+  questions = englishGrammar;
+  break;
+case "tenses":
+  questions = tenses;
+  break;
+case "vocabulary":
+  questions = vocabulary;
+  break;
+  case "synonyms-antonyms":
+  questions = synonymsAntonyms;
+  break;
+  case "idioms":
+  questions = idioms;
+  break;
+case "algebra":
+  questions = algebra;
+  break;
+  case "geometry":
+  questions = geometry;
+  break;
+  case "trigonometry":
+  questions = trigonometry;
+  break;
+  case "calculus":
+  questions = calculus;
+  break;
+  case "statistics":
+  questions = statistics;
+  break;
+  case "physics":
+  questions = physics;
+  break;
+  case "chemistry":
+  questions = chemistry;
+  break;
+  case "biology":
+  questions = biology;
+  break;
+  case "general-science":
+  questions = generalScience;
+  break;
+  case "space-science":
+  questions = spaceScience;
+  break;
+case "oop":
+case "object-oriented-programming":
+  questions = objectOrientedProgramming;
+  break;
+  case "database-systems":
+  questions = databaseSystems;
+  break;
+  case "bootstrap":
+  questions = bootstrapQuestions;
+  break;
+  case "tailwind":
+  questions = tailwindQuestions;
+  break;
+  case "jquery":
+    questions = jqueryQuestions;
+    break;
+    case "typescript":
+    questions = typescriptQuestions;
+    break;
+    case "firebase":
+    questions = firebaseQuestions;
+    break;
+    case "mongodb":
+    questions = mongodbQuestions;
+    break;
+    case "mysql":
+    questions = mysqlQuestions;
+    break;
+    case "php":
+    questions = phpQuestions;
+    break;
+    case "python":
+    questions = pythonQuestions;
+    break;
+    case "java":
+    questions = javaQuestions;
+    break;
+  case "cpp":
+    questions = cppQuestions;
+    break;
+    case "flutter":
+    questions = flutterQuestions;
+    break;
+    case "gitgithub":
+    questions = gitGithubQuestions;
+    break;
+    case "webdevelopment":
+    questions = webDevelopmentQuestions;
+    break;
+    case "cybersecurity":
+    questions = cyberSecurityQuestions;
+    break;
+    case "linux":
+    questions = linuxQuestions;
+    break;
+    case "restapi":
+    questions = restApiQuestions;
+    break;
+    case "datascience":
+    questions = dataScienceQuestions;
+    break;
+   case "mach-learn":
+  questions = machineLearningQuestions;
+  break;
+  case "devops":
+  questions = devOpsQuestions;
+  break;
+  case "nodejs":
+  questions = nodejsQuestions;
+  break;
     default:
       questions = [];
   }
+  
 
   console.log("Category:", category);
   console.log("Questions:", questions);
@@ -115,17 +307,38 @@ useEffect(() =>
 
 }, [timeLeft, finished, currentQuestion]);
 
-const nextQuestion = (auto = false) => {
+const nextQuestion = async (auto = false) => {
   if (!selected && !auto) {
     alert("Please select an answer.");
     return;
   }
 
-  if (currentQuestion === questions.length - 1) {
-    setFinished(true);
-    return;
+if (currentQuestion === questions.length - 1) {
+  const percentage = Math.round(((score + (selected === questions[currentQuestion].answer ? 1 : 0)) / questions.length) * 100);
+
+  const currentUser = auth.currentUser;
+
+  if (currentUser) {
+    try {
+      await addDoc(collection(db, "quizHistory"), {
+        uid: currentUser.uid,
+        name: currentUser.displayName || currentUser.email,
+        email: currentUser.email,
+        category,
+        score: score + (selected === questions[currentQuestion].answer ? 1 : 0),
+        total: questions.length,
+        percentage,
+        date: new Date().toLocaleDateString(),
+        createdAt: new Date(),
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
+  setFinished(true);
+  return;
+}
   setCurrentQuestion((prev) => prev + 1);
   setSelected("");
   setTimeLeft(30);
@@ -208,6 +421,8 @@ if (finished) {
   const percentage = Math.round((score / questions.length) * 100);
   const highScore =
   Number(localStorage.getItem(category)) || 0;
+  
+  
 
 if (percentage > highScore) {
   localStorage.setItem(category, percentage);

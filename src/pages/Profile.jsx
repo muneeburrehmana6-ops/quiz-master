@@ -1,53 +1,112 @@
-import { useState } from "react";
+import { db } from "../firebase";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  signOut,
+  onAuthStateChanged,
+  sendPasswordResetEmail,
+} from "firebase/auth";
+import { auth } from "../firebase";
 import "../styles/Profile.css";
 
 function Profile() {
-  const username = localStorage.getItem("username") || "Guest";
-
+  const [user, setUser] = useState(null);
+const [username, setUsername] = useState("Guest");
   const [newName, setNewName] = useState(username);
   const [profileImage, setProfileImage] = useState(
   localStorage.getItem("profileImage") || ""
+  
 );
-  const [newPassword, setNewPassword] = useState("");
+useEffect(() => {
+  setNewName(username);
+}, [username]);
+  
   const [showEdit, setShowEdit] = useState(false);
+  const [totalQuizzes, setTotalQuizzes] = useState(0);
+const [average, setAverage] = useState(0);
+const [highScore, setHighScore] = useState(0);
 
   const navigate = useNavigate();
-
-  const handleLogout = () => {
-    if (window.confirm("Are you sure you want to logout?")) {
-      localStorage.removeItem("username");
+  useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    if (currentUser) {
+      setUser(currentUser);
+    setUsername(
+  currentUser.displayName || currentUser.email
+);
+    } else {
       navigate("/login");
-      window.location.reload();
+    }
+  });
+
+  return () => unsubscribe();
+}, [navigate]);
+useEffect(() => {
+  const fetchUserStats = async () => {
+    if (!user) return;
+
+    try {
+      const q = query(
+        collection(db, "quizHistory"),
+        where("uid", "==", user.uid)
+      );
+
+      const querySnapshot = await getDocs(q);
+
+      const data = querySnapshot.docs.map((doc) => doc.data());
+
+      setTotalQuizzes(data.length);
+
+      if (data.length > 0) {
+        const avg = Math.round(
+          data.reduce((sum, item) => sum + item.percentage, 0) /
+            data.length
+        );
+
+        setAverage(avg);
+
+        const highest = Math.max(
+          ...data.map((item) => item.percentage)
+        );
+
+        setHighScore(highest);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
-  const history =
-    JSON.parse(localStorage.getItem("quizHistory")) || [];
+  fetchUserStats();
+}, [user]);
+const handleLogout = async () => {
+  if (window.confirm("Are you sure you want to logout?")) {
+    await signOut(auth);
 
-  const totalQuizzes = history.length;
+    localStorage.removeItem("username");
+    localStorage.removeItem("user");
 
-  const average =
-    totalQuizzes > 0
-      ? Math.round(
-          history.reduce(
-            (sum, item) => sum + item.percentage,
-            0
-          ) / totalQuizzes
-        )
-      : 0;
+    navigate("/login");
+  }
+};
+const handleChangePassword = async () => {
+  if (!user) return;
 
-  const leaderboard =
-    JSON.parse(localStorage.getItem("leaderboard")) || [];
+  try {
+    await sendPasswordResetEmail(auth, user.email);
 
-  const userScores = leaderboard.filter(
-    (item) => item.name === username
-  );
+    alert("Password reset link sent to your email ✅");
+  } catch (error) {
+    alert(error.message);
+  }
+};
 
-  const highScore =
-    userScores.length > 0
-      ? Math.max(...userScores.map((u) => u.percentage))
-      : 0;
+ 
 
   // Badge
   let badge = "🥉 Bronze Member";
@@ -76,19 +135,11 @@ function Profile() {
 };
 
 const saveProfile = () => {
-  if (!newName.trim()) {
-    alert("Please enter a username");
-    return;
-  }
-
+  setUsername(newName);
   localStorage.setItem("username", newName);
 
-  if (newPassword) {
-    localStorage.setItem(`${newName}_password`, newPassword);
-  }
-
   alert("✅ Profile Updated Successfully");
-  window.location.reload();
+  setShowEdit(false);
 };
 
   return (
@@ -169,12 +220,7 @@ const saveProfile = () => {
               onChange={(e) => setNewName(e.target.value)}
             />
 
-            <input
-              type="password"
-              placeholder="New Password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-            />
+           
             <label className="upload-label">
   📷 Upload Profile Picture
 </label>
@@ -194,13 +240,19 @@ const saveProfile = () => {
             </button>
           </>
         )}
+<button
+  className="save-btn"
+  onClick={handleChangePassword}
+>
+  🔒 Change Password
+</button>
 
-        <button
-          className="logout-btn"
-          onClick={handleLogout}
-        >
-          🚪 Logout
-        </button>
+<button
+  className="logout-btn"
+  onClick={handleLogout}
+>
+  🚪 Logout
+</button>
 
       </div>
     </div>

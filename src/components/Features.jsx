@@ -10,17 +10,17 @@ function Features() {
 
         <div className="feature-card">
           <h3>⚡ Fast Quizzes</h3>
-          <p>Take quizzes instantly without waiting.</p>
+          <p>Take quizzes instantly and practice your knowledge without unnecessary waiting.</p>
         </div>
 
         <div className="feature-card">
           <h3>🏆 Leaderboard</h3>
-          <p>Compete with players around the world.</p>
+          <p>Compare your quiz performance and track your progress with leaderboard scores.</p>
         </div>
 
         <div className="feature-card">
-          <h3>🧠 Daily Challenge</h3>
-          <p>New quiz every day to improve your skills.</p>
+          <h3>🧠 Learning Challenges</h3>
+          <p>Challenge yourself with quizzes designed to help you practice and improve your knowledge.</p>
         </div>
 
         <div className="feature-card">

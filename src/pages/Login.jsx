@@ -1,34 +1,50 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 import "../styles/Login.css";
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-  const savedUser = JSON.parse(localStorage.getItem("user"));
-
-  if (!savedUser) {
-    alert("No account found. Please register first.");
+  const handleLogin = async () => {
+  if (!email || !password) {
+    alert("Please fill all fields");
     return;
   }
 
-  if (
-    username === savedUser.username &&
-    password === savedUser.password
-  ) {
-    localStorage.setItem("username", savedUser.name);
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+  auth,
+  email,
+  password
+);
 
-    alert("Login Successful ✅");
+localStorage.setItem(
+  "username",
+  userCredential.user.displayName || userCredential.user.email
+);
 
-    navigate("/");
-  } else {
-    alert("Invalid Username or Password ❌");
-  }
+alert("Login Successful ✅");
+
+navigate("/");
+
+  } catch (error) {
+    if (error.code === "auth/user-not-found") {
+      alert("No account found.");
+    } else if (error.code === "auth/wrong-password") {
+      alert("Incorrect password.");
+    } else if (error.code === "auth/invalid-credential") {
+      alert("Invalid email or password.");
+    } else {
+      alert(error.message);
+    }
+  
+};
 };
 
   return (
@@ -37,15 +53,14 @@ function Login() {
 
         <h1>Welcome </h1>
 
-      <p>Enter your username and password.</p>
+      <p>Enter your email and password.</p>
 
         <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-
+  type="email"
+  placeholder="Email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+/>
         <input
           type={showPassword ? "text" : "password"}
           placeholder="Password"

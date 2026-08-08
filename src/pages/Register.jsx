@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { auth } from "../firebase";
 import "../styles/Register.css";
+
 
 function Register() {
   const navigate = useNavigate();
@@ -11,28 +17,37 @@ function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleRegister = () => {
-    if (
-      !name ||
-      !email ||
-      !username ||
-      !password ||
-      !confirmPassword
-    ) {
-      alert("Please fill all fields");
-      return;
-    }
+ const handleRegister = async () => {
+  if (
+    !name ||
+    !email ||
+    !username ||
+    !password ||
+    !confirmPassword
+  ) {
+    alert("Please fill all fields");
+    return;
+  }
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
+  if (password !== confirmPassword) {
+    alert("Passwords do not match");
+    return;
+  }
 
+  try {
+ const userCredential = await createUserWithEmailAndPassword(
+  auth,
+  email,
+  password
+);
+
+await updateProfile(userCredential.user, {
+  displayName: name,
+});
     const user = {
       name,
       email,
       username,
-      password,
     };
 
     localStorage.setItem("user", JSON.stringify(user));
@@ -40,7 +55,18 @@ function Register() {
     alert("Registration Successful ✅");
 
     navigate("/login");
-  };
+
+  } catch (error) {
+  if (error.code === "auth/email-already-in-use") {
+    alert("This email is already registered.");
+  } else if (error.code === "auth/weak-password") {
+    alert("Password should be at least 6 characters.");
+  } else {
+    alert(error.message);
+  }
+  
+  }
+};
 
   return (
     <div className="register-page">

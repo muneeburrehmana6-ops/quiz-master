@@ -1,8 +1,42 @@
+import { useEffect, useState } from "react";
 import "../styles/Leaderboard.css";
 
+import { db } from "../firebase";
+import {
+  collection,
+  getDocs,
+  query,
+  orderBy,
+  limit,
+} from "firebase/firestore";
+
 function Leaderboard() {
-  const leaderboard =
-    JSON.parse(localStorage.getItem("leaderboard")) || [];
+  const [leaderboard, setLeaderboard] = useState([]);
+
+  useEffect(() => {
+    const fetchLeaderboard = async () => {
+      try {
+        const q = query(
+          collection(db, "quizHistory"),
+          orderBy("percentage", "desc"),
+          limit(10)
+        );
+
+        const querySnapshot = await getDocs(q);
+
+        const data = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setLeaderboard(data);
+      } catch (error) {
+        console.error("Firestore Error:", error);
+      }
+    };
+
+    fetchLeaderboard();
+  }, []);
 
   return (
     <div className="leaderboard-page">
@@ -18,13 +52,13 @@ function Leaderboard() {
               <th>Name</th>
               <th>Category</th>
               <th>Score</th>
-              <th>%</th>
+              <th>Percentage</th>
             </tr>
           </thead>
 
           <tbody>
             {leaderboard.map((user, index) => (
-              <tr key={index}>
+              <tr key={user.id}>
                 <td>
                   {index === 0
                     ? "🥇"
@@ -37,10 +71,10 @@ function Leaderboard() {
 
                 <td>{user.name}</td>
 
-                <td>{user.category.toUpperCase()}</td>
+                <td>{user.category?.toUpperCase()}</td>
 
                 <td>
-                 {user.score}/{user.total}
+                  {user.score}/{user.total}
                 </td>
 
                 <td>{user.percentage}%</td>

@@ -9,8 +9,7 @@ function Hero() {
       <h1>Learn While Having Fun 🎯</h1>
 
       <p>
-        Test your knowledge with thousands of quizzes in
-        Programming, AI, Science, English, Math and more.
+     Test your knowledge with hundreds of carefully designed questions across programming, AI, science, mathematics and more.
       </p>
 
       <div className="hero-buttons">

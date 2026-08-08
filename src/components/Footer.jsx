@@ -26,6 +26,7 @@ function Footer() {
         <Link to="/terms">
           Terms & Conditions
         </Link>
+        <Link to="/disclaimer">Disclaimer</Link>
 
       </div>
 

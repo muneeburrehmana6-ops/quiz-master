@@ -20,9 +20,21 @@ function Programming() {
     {
       title: "Algorithms",
       icon: "⚡",
-      questions: 20,
+      questions: 4,
       path: "/quiz/algorithms",
     },
+    {
+  title: "Object-Oriented Programming",
+  icon: "🏛️",
+  questions: 20,
+  path: "/quiz/object-oriented-programming",
+},
+{
+  title: "Database Systems",
+  icon: "🗄️",
+  questions: 20,
+  path: "/quiz/database-systems",
+},
   ];
 
   return (

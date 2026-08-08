@@ -6,29 +6,159 @@ function Categories() {
   const navigate = useNavigate();
 
   const [search, setSearch] = useState("");
-
-  const categories = [
-    {
-      name: "HTML",
-      icon: "🌐",
-      color: "#e34c26",
-    },
-    {
-      name: "CSS",
-      icon: "🎨",
-      color: "#264de4",
-    },
-    {
-      name: "JavaScript",
-      icon: "⚡",
-      color: "#f7df1e",
-    },
-    {
-      name: "React",
-      icon: "⚛️",
-      color: "#61dafb",
-    },
-  ];
+const categories = [
+  {
+    name: "HTML",
+    icon: "🌐",
+    color: "#e34c26",
+    path: "/quiz/html",
+  },
+  {
+    name: "CSS",
+    icon: "🎨",
+    color: "#264de4",
+    path: "/quiz/css",
+  },
+  {
+    name: "JavaScript",
+    icon: "⚡",
+    color: "#f7df1e",
+    path: "/quiz/javascript",
+  },
+  {
+    name: "React",
+    icon: "⚛️",
+    color: "#61dafb",
+    path: "/quiz/react",
+  },
+  {
+    name: "Node.js",
+    icon: "🟢",
+    color: "#3C873A",
+    path: "/quiz/nodejs",
+  },
+  {
+  name: "Bootstrap",
+  icon: "🅱️",
+  color: "#7952B3",
+  path: "/quiz/bootstrap",
+},
+  {
+  name: "Tailwind CSS",
+  icon: "💨",
+  color: "#38BDF8",
+  path: "/quiz/tailwind",
+},
+{
+    name: "jQuery",
+    icon: "💛",
+    color: "#0769AD",
+    path: "/quiz/jquery",
+},
+{
+  name: "TypeScript",
+  icon: "📘",
+  color: "#3178C6",
+  path: "/quiz/typescript",
+},
+{
+  name: "Firebase",
+  icon: "🔥",
+  color: "#FFCA28",
+  path: "/quiz/firebase",
+},
+{
+  name: "MongoDB",
+  icon: "🍃",
+  color: "#47A248",
+  path: "/quiz/mongodb",
+},
+{
+  name: "MySQL",
+  icon: "🐬",
+  color: "#00758F",
+  path: "/quiz/mysql",
+},
+{
+  name: "PHP",
+  icon: "🐘",
+  color: "#777BB4",
+  path: "/quiz/php",
+},
+{
+  name: "Python",
+  icon: "🐍",
+  color: "#3776AB",
+  path: "/quiz/python",
+},
+{
+  name: "Java",
+  icon: "☕",
+  color: "#F89820",
+  path: "/quiz/java",
+},
+{
+  name: "C++",
+  icon: "💠",
+  color: "#00599C",
+  path: "/quiz/cpp",
+},
+{
+  name: "Flutter",
+  icon: "🩵",
+  color: "#02569B",
+  path: "/quiz/flutter",
+},
+{
+  name: "Git & GitHub",
+  icon: "🐙",
+  color: "#F05032",
+  path: "/quiz/gitgithub",
+},
+{
+  name: "Web Development",
+  icon: "🌐",
+  color: "#2563EB",
+  path: "/quiz/webdevelopment",
+},
+{
+  name: "Cyber Security",
+  icon: "🔒",
+  color: "#DC2626",
+  path: "/quiz/cybersecurity",
+},
+{
+  name: "Linux",
+  icon: "🐧",
+  color: "#FCC624",
+  path: "/quiz/linux",
+},
+{
+  name: "REST API",
+  icon: "🔗",
+  color: "#0EA5E9",
+  path: "/quiz/restapi",
+},
+{
+  name: "Data Science",
+  icon: "📊",
+  color: "#2563EB",
+  path: "/quiz/datascience",
+},
+{
+  name: "Machine Learning",
+  icon: "🤖",
+  color: "#7C3AED",
+  path: "/quiz/mach-learn",
+},
+{
+  name: "DevOps",
+  icon: "⚙️",
+  color: "#2563EB",
+  path: "/quiz/devops",
+},
+];
+  
 
   return (
     <div className="categories-page">
@@ -58,9 +188,7 @@ function Categories() {
             <div
               key={category.name}
               className="category-card"
-              onClick={() =>
-                navigate(`/quiz/${category.name.toLowerCase()}`)
-              }
+              onClick={() => navigate(category.path)}
             >
 
               <h1 style={{ fontSize: "70px" }}>
@@ -71,7 +199,7 @@ function Categories() {
                 {category.name}
               </h2>
 
-              <p>20 Multiple Choice Questions</p>
+              
 
               <span>Start Quiz →</span>
 

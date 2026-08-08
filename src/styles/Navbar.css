@@ -148,3 +148,15 @@
     font-size: 14px;
   }
 }
+.logout-link {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: inherit;
+  transition: 0.3s;
+}
+
+.logout-link:hover {
+  color: #ffd700; /* Ya jo hover color tumhare navbar me use ho raha hai */
+}

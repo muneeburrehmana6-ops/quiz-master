@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "../styles/Categories.css";
 import QuizCard from "./QuizCard";
 
@@ -39,6 +40,7 @@ function Categories() {
       questions: 100,
       path: "/general-knowledge",
     },
+    
   ];
 
   return (

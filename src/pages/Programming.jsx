@@ -23,6 +23,18 @@ function Programming() {
       questions: 20,
       path: "/quiz/algorithms",
     },
+      {
+    title: "Object-Oriented Programming",
+    icon: "🏛️",
+     questions: 20,
+    path: "/quiz/object-oriented-programming",
+  },
+  {
+    title: "Database Systems",
+    icon: "🗄️",
+     questions: 20,
+    path: "/quiz/database-systems",
+  },
   ];
 
   return (
