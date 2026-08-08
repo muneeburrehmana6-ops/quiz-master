@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://www.quizmasterlearn.com/sitemap.xml
