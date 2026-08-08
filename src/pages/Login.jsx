@@ -1,5 +1,5 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import "../styles/Login.css";
@@ -10,6 +10,7 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = async () => {
   if (!email || !password) {
@@ -31,7 +32,9 @@ localStorage.setItem(
 
 alert("Login Successful ✅");
 
-navigate("/");
+const redirectTo = location.state?.from || "/";
+
+navigate(redirectTo, { replace: true });
 
   } catch (error) {
     if (error.code === "auth/user-not-found") {

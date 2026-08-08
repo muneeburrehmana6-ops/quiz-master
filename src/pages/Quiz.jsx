@@ -4,7 +4,7 @@ import { auth } from "../firebase";
 import jsPDF from "jspdf";
 import "../styles/Quiz.css";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import htmlQuestions from "../data/html";
 import cssQuestions from "../data/css";
@@ -64,6 +64,8 @@ import databaseSystems from "../programming/databaseSystems";
 
 function Quiz() {
   const { category } = useParams();
+  const navigate = useNavigate();
+  
 
   let questions = [];
 
@@ -255,6 +257,16 @@ const [timeLeft, setTimeLeft] = useState(30);
 const [showExplanation, setShowExplanation] = useState(false);
 const [userAnswers, setUserAnswers] = useState([]);
 const username = localStorage.getItem("username") || "Guest";
+useEffect(() => {
+  if (!auth.currentUser) {
+    navigate("/login", {
+      state: {
+        from: `/quiz/${category}`,
+      },
+      replace: true,
+    });
+  }
+}, [category, navigate]);
 
 
 
