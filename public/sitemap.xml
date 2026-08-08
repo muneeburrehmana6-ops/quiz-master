@@ -3,47 +3,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://your-domain.com/</loc>
+    <loc>https://www.quizmasterlearn.com/</loc>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/about</loc>
+    <loc>https://www.quizmasterlearn.com/about</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/contact</loc>
+    <loc>https://www.quizmasterlearn.com/contact</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/privacy</loc>
+    <loc>https://www.quizmasterlearn.com/privacy</loc>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/terms</loc>
+    <loc>https://www.quizmasterlearn.com/terms</loc>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/leaderboard</loc>
+    <loc>https://www.quizmasterlearn.com/leaderboard</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/history</loc>
+    <loc>https://www.quizmasterlearn.com/history</loc>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/profile</loc>
+    <loc>https://www.quizmasterlearn.com/profile</loc>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://your-domain.com/categories</loc>
+    <loc>https://www.quizmasterlearn.com/categories</loc>
     <priority>0.9</priority>
   </url>
 
