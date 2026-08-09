@@ -293,7 +293,7 @@ case "object-oriented-programming":
     content="website"
   />
 </Helmet>
-
+ 
   const [currentQuestion, setCurrentQuestion] = useState(0);
 const [score, setScore] = useState(0);
 const [selected, setSelected] = useState("");
@@ -302,16 +302,7 @@ const [timeLeft, setTimeLeft] = useState(30);
 const [showExplanation, setShowExplanation] = useState(false);
 const [userAnswers, setUserAnswers] = useState([]);
 const username = localStorage.getItem("username") || "Guest";
-useEffect(() => {
-  if (!auth.currentUser) {
-    navigate("/login", {
-      state: {
-        from: `/quiz/${category}`,
-      },
-      replace: true,
-    });
-  }
-}, [category, navigate]);
+
 
 
 
