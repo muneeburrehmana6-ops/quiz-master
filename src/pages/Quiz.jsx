@@ -302,7 +302,16 @@ const [timeLeft, setTimeLeft] = useState(30);
 const [showExplanation, setShowExplanation] = useState(false);
 const [userAnswers, setUserAnswers] = useState([]);
 const username = localStorage.getItem("username") || "Guest";
-
+useEffect(() => {
+  if (!auth.currentUser) {
+    navigate("/login", {
+      state: {
+        from: `/quiz/${category}`,
+      },
+      replace: true,
+    });
+  }
+}, [category, navigate]);
 
 
 
