@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { auth } from "../firebase";
@@ -64,11 +65,17 @@ import databaseSystems from "../programming/databaseSystems";
 
 function Quiz() {
   const { category } = useParams();
+  const categoryName = category
+  ? category
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, (letter) => letter.toUpperCase())
+  : "Quiz";
+
+const seoDescription = `Practice ${categoryName} quiz questions on QuizMaster Learn. Test your knowledge, improve your skills, and track your quiz progress.`;
   const navigate = useNavigate();
   
 
   let questions = [];
-
   switch (category) {
     case "html":
       questions = htmlQuestions;
@@ -248,6 +255,44 @@ case "object-oriented-programming":
 
   console.log("Category:", category);
   console.log("Questions:", questions);
+  <Helmet>
+  <title>{categoryName} Quiz - QuizMaster Learn</title>
+
+  <meta
+    name="description"
+    content={seoDescription}
+  />
+
+  <meta
+    name="robots"
+    content="index, follow"
+  />
+
+  <link
+    rel="canonical"
+    href={`https://www.quizmasterlearn.com/quiz/${category}`}
+  />
+
+  <meta
+    property="og:title"
+    content={`${categoryName} Quiz - QuizMaster Learn`}
+  />
+
+  <meta
+    property="og:description"
+    content={seoDescription}
+  />
+
+  <meta
+    property="og:url"
+    content={`https://www.quizmasterlearn.com/quiz/${category}`}
+  />
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+</Helmet>
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
 const [score, setScore] = useState(0);
@@ -274,6 +319,8 @@ useEffect(() => {
     
      {
     return (
+      
+      
       <div style={{ textAlign: "center", marginTop: "80px" }}>
         <h1>No Questions Found</h1>
         <h3>Category: {category}</h3>
@@ -534,6 +581,8 @@ localStorage.setItem(
 }
 
   return (
+    
+    
   <div className="quiz-container">
 
     {/* Header */}
@@ -604,6 +653,7 @@ localStorage.setItem(
     }
 
     return (
+      
       <button
         key={index}
         className={className}
