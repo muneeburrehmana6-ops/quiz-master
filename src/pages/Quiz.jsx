@@ -56,6 +56,7 @@ import dataScienceQuestions from "../data/dataScience";
 import machineLearningQuestions from "../data/mach-learn";
 import devOpsQuestions from "../data/devops";
 import nodejsQuestions from "../data/nodejs";
+import currentAffairs from "../data/currentAffairs";
 
 import cProgramming from "../programming/cProgramming";
 import dataStructure from "../programming/dataStructure";
@@ -118,6 +119,10 @@ const seoDescription = `Practice ${categoryName} quiz questions on QuizMaster Le
   case "sports":
   questions = sports;
   break;
+  case "current-affairs":
+  questions = currentAffairs;
+  break;
+
   case "ai-basics":
   questions = aiBasics;
   break;
