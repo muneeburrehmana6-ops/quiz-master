@@ -2,6 +2,8 @@
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Main Pages -->
+
   <url>
     <loc>https://www.quizmasterlearn.com/</loc>
     <priority>1.0</priority>
@@ -28,6 +30,11 @@
   </url>
 
   <url>
+    <loc>https://www.quizmasterlearn.com/disclaimer</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://www.quizmasterlearn.com/leaderboard</loc>
     <priority>0.8</priority>
   </url>
@@ -46,6 +53,10 @@
     <loc>https://www.quizmasterlearn.com/categories</loc>
     <priority>0.9</priority>
   </url>
+
+
+  <!-- Explore Categories -->
+
   <url>
     <loc>https://www.quizmasterlearn.com/quiz/html</loc>
     <priority>0.8</priority>
@@ -168,6 +179,207 @@
 
   <url>
     <loc>https://www.quizmasterlearn.com/quiz/devops</loc>
+    <priority>0.8</priority>
+  </url>
+
+
+  <!-- Programming Category -->
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/programming</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/c-programming</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/data-structure</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/algorithms</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/object-oriented-programming</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/database-systems</loc>
+    <priority>0.8</priority>
+  </url>
+
+
+  <!-- Artificial Intelligence -->
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/ai</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/ai-basics</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/machine-learning</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/deep-learning</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/nlp</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/computer-vision</loc>
+    <priority>0.8</priority>
+  </url>
+
+
+  <!-- English -->
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/english</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/english-grammar</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/tenses</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/vocabulary</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/synonyms-antonym</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/idioms</loc>
+    <priority>0.8</priority>
+  </url>
+
+
+  <!-- Mathematics -->
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/mathematics</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/algebra</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/geometry</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/trigonometry</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/calculus</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/statistics</loc>
+    <priority>0.8</priority>
+  </url>
+
+
+  <!-- Science -->
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/science</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/physics</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/chemistry</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/biology</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/general-science</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/space-science</loc>
+    <priority>0.8</priority>
+  </url>
+
+
+  <!-- General Knowledge -->
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/general-knowledge</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/pakistan-gk</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/world-gk</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/islamic-studie</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/sports</loc>
+    <priority>0.8</priority>
+  </url>
+
+
+  <!-- Current Affairs -->
+
+  <url>
+    <loc>https://www.quizmasterlearn.com/quiz/current-affairs</loc>
     <priority>0.8</priority>
   </url>
 
