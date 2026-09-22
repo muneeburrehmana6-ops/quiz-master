@@ -34,7 +34,7 @@ function Navbar({ darkMode, setDarkMode }) {
 
   return (
     <nav className="navbar">
-      <div className="logo">QuizMaster</div>
+      <Link to="/" className="logo">QuizMaster</Link>
 
       <ul className="nav-links">
         <li>
@@ -47,13 +47,16 @@ function Navbar({ darkMode, setDarkMode }) {
         </li>
 
         <li><Link to="/">Home</Link></li>
+        <li><Link to="/categories">Quizzes</Link></li>
+        <li><Link to="/learn">Study Guides</Link></li>
+        <li><Link to="/articles">Articles</Link></li>
         <li><Link to="/leaderboard">Leaderboard</Link></li>
-        <li><Link to="/history">History</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/contact">Contact</Link></li>
 
         {user ? (
           <>
+            <li><Link to="/history">History</Link></li>
             <li><Link to="/profile">Profile</Link></li>
         <li>
   <span className="logout-link" onClick={handleLogout}>

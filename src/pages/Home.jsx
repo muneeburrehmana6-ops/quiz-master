@@ -3,16 +3,21 @@ import Hero from "../components/Hero";
 import Categories from "../components/Categories";
 import Features from "../components/Features";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
+import articles, { formatDate } from "../data/articles";
+import { groups, topicsInGroup } from "../data/topics";
+import "../styles/Learn.css";
 
 function Home() {
   return (
     <>
       <Helmet>
-        <title>QuizMaster | Learn Programming Through Quizzes</title>
+        <title>QuizMaster Learn | Free Online Quizzes and Study Guides</title>
+        <link rel="canonical" href="https://www.quizmasterlearn.com/" />
 
         <meta
           name="description"
-          content="QuizMaster is an interactive quiz platform where you can practice HTML, CSS, JavaScript, React, C Programming, Data Structures and Algorithms."
+          content="Free online quizzes and study guides with explanations for programming, web development, AI, English, mathematics, science and Pakistan general knowledge."
         />
 
         <meta
@@ -235,6 +240,60 @@ function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Study guides */}
+      <section className="home-section">
+        <h2>Free study guides</h2>
+        <p>
+          Every quiz has a study guide with all the questions, the correct answers
+          and a short explanation. Read one before you take the quiz, or after it
+          to review what you missed.
+        </p>
+        <div className="home-guides">
+          {groups.map((g) => (
+            <div key={g.key} className="home-guide-group">
+              <h3>
+                <Link to={g.path}>
+                  {g.icon} {g.title}
+                </Link>
+              </h3>
+              <ul>
+                {topicsInGroup(g.key)
+                  .slice(0, 5)
+                  .map((t) => (
+                    <li key={t.slug}>
+                      <Link to={`/learn/${t.slug}`}>{t.title}</Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p>
+          <Link className="learn-link" to="/learn">
+            See all study guides
+          </Link>
+        </p>
+      </section>
+
+      {/* Latest articles */}
+      <section className="home-section">
+        <h2>Latest articles</h2>
+        <div className="article-list">
+          {articles.slice(0, 3).map((a) => (
+            <Link to={`/articles/${a.slug}`} className="article-card" key={a.slug}>
+              <h3>{a.title}</h3>
+              <p>{a.description}</p>
+              <span className="article-date">{formatDate(a.date)}</span>
+            </Link>
+          ))}
+        </div>
+        <p>
+          <Link className="learn-link" to="/articles">
+            Read all articles
+          </Link>
+        </p>
       </section>
 
       {/* Why Choose QuizMaster */}

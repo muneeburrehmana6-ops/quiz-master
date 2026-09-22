@@ -1,6 +1,18 @@
 import { Helmet } from "react-helmet-async";
 import "../styles/Contact.css";
 
+const CONTACT_EMAIL = "support@quizmasterlearn.com";
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = new FormData(e.target);
+  const subject = encodeURIComponent(`Message from ${form.get("name")}`);
+  const body = encodeURIComponent(
+    `${form.get("message")}\n\nFrom: ${form.get("name")} (${form.get("email")})`
+  );
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+}
+
 function Contact() {
   return (
     <>
@@ -52,22 +64,25 @@ function Contact() {
             We'd love to hear from you.
           </p>
 
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
 
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
               required
             />
 
             <input
               type="email"
+              name="email"
               placeholder="Your Email"
               required
             />
 
             <textarea
               rows="6"
+              name="message"
               placeholder="Your Message"
               required
             ></textarea>
@@ -82,7 +97,7 @@ function Contact() {
 
             <h3>Contact Information</h3>
 
-            <p>📧 Email: support@quizmasterlearn.com</p>
+            <p>📧 Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
 
             <p>🌐 Website: www.quizmasterlearn.com</p>
 

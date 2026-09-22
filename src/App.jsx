@@ -27,6 +27,12 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Disclaimer from "./pages/Disclaimer";
+import StudyGuide from "./pages/StudyGuide";
+import LearnIndex from "./pages/LearnIndex";
+import Articles from "./pages/Articles";
+import ArticlePage from "./pages/ArticlePage";
+import NotFound from "./pages/NotFound";
+import SiteGuard from "./components/SiteGuard";
 
 function App() {
   const [darkMode, setDarkMode] = useState(
@@ -50,6 +56,8 @@ function App() {
         setDarkMode={setDarkMode}
       />
 
+      <SiteGuard />
+
       <Routes>
         <Route path="/" element={<Home />} />
 
@@ -69,8 +77,7 @@ function App() {
           path="/programming"
           element={<Programming />}
         />
-  ]
-      
+
         <Route path="/ai" element={<AI />} />
 
         <Route
@@ -103,6 +110,13 @@ function App() {
 
         <Route path="/terms" element={<Terms />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
+
+        <Route path="/learn" element={<LearnIndex />} />
+        <Route path="/learn/:slug" element={<StudyGuide />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/articles/:slug" element={<ArticlePage />} />
+
+        <Route path="*" element={<NotFound />} />
         
       </Routes>
     </>

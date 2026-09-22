@@ -20,7 +20,7 @@ function Programming() {
     {
       title: "Algorithms",
       icon: "⚡",
-      questions: 4,
+      questions: 20,
       path: "/quiz/algorithms",
     },
     {

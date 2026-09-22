@@ -1,10 +1,13 @@
 import { Helmet } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { getGroup } from "../data/topics";
+import Footer from "../components/Footer";
+import "../styles/Learn.css";
 import { useState } from "react";
 import "../styles/Categories.css";
 
 function Categories() {
-  const navigate = useNavigate();
+  const group = getGroup("web");
   const [search, setSearch] = useState("");
 
   const categories = [
@@ -78,6 +81,21 @@ function Categories() {
       <div className="categories-page">
         <h1>🚀 Choose Your Quiz Category</h1>
 
+        <div className="hub-intro">
+          {group.intro.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+          <p>
+            Looking for other subjects? See{" "}
+            <Link to="/programming">Programming</Link>,{" "}
+            <Link to="/ai">Artificial Intelligence</Link>,{" "}
+            <Link to="/english">English</Link>,{" "}
+            <Link to="/mathematics">Mathematics</Link>,{" "}
+            <Link to="/science">Science</Link> and{" "}
+            <Link to="/general-knowledge">General Knowledge</Link>.
+          </p>
+        </div>
+
         <div className="search-box">
           <input
             type="text"
@@ -93,11 +111,7 @@ function Categories() {
               category.name.toLowerCase().includes(search.toLowerCase())
             )
             .map((category) => (
-              <div
-                key={category.name}
-                className="category-card"
-                onClick={() => navigate(category.path)}
-              >
+              <div key={category.name} className="category-card">
                 <h1 style={{ fontSize: "70px" }}>
                   {category.icon}
                 </h1>
@@ -106,11 +120,20 @@ function Categories() {
                   {category.name}
                 </h2>
 
-                <span>Start Quiz →</span>
+                <Link to={category.path} className="category-link">
+                  Start Quiz →
+                </Link>
+                <Link
+                  to={category.path.replace("/quiz/", "/learn/")}
+                  className="category-guide"
+                >
+                  Study guide
+                </Link>
               </div>
             ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -15,6 +15,12 @@ function Footer() {
 
         <Link to="/">Home</Link>
 
+        <Link to="/categories">Quizzes</Link>
+
+        <Link to="/learn">Study Guides</Link>
+
+        <Link to="/articles">Articles</Link>
+
         <Link to="/about">About</Link>
 
         <Link to="/contact">Contact</Link>
