@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../styles/QuizCard.css";
 
 function QuizCard({ title, icon, questions, path }) {
+  const navigate = useNavigate();
+
   return (
     <div className="quiz-card">
       <div className="quiz-icon">{icon}</div>
@@ -10,9 +12,9 @@ function QuizCard({ title, icon, questions, path }) {
 
       <p>{questions} Questions</p>
 
-      <Link to={path} className="quiz-card-link">
-        Explore quizzes
-      </Link>
+      <button onClick={() => navigate(path)}>
+        Start Quiz
+      </button>
     </div>
   );
 }

@@ -1,16 +1,26 @@
-# React + Vite
+# QuizMaster Learn
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React + Vite quiz site.
 
-Currently, two official plugins are available:
+## Build and deploy
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+    npm install
+    npm run build      # vite build + scripts/prerender.mjs
+    # deploy the dist/ folder
 
-## React Compiler
+`npm run build` also pre-renders ~75 static HTML pages (quiz study pages, articles, hubs) and regenerates
+`sitemap.xml`, so crawlers (Google / AdSense) can read the content without running JavaScript.
+Your host must serve `dist/<route>/index.html` for each route and fall back to `/index.html` for unknown URLs.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Content
 
-## Expanding the Oxlint configuration
+- `src/content/categoryInfo.js` – overview, topics and study tip shown on every quiz page
+- `src/content/articles.js` – blog articles
+- `src/content/categories.js` – joins category info with the question files in `src/data` and `src/programming`
+- To add a quiz: add the question file, add its entry in `categoryInfo.js`, import it in `categories.js`.
+- `current-affairs` is set to noindex in `categories.js`; review/refresh it, then remove it from `noindexSlugs`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Routes
+
+- `/quiz/:slug` – public study page (overview + all questions with answers and explanations)
+- `/quiz/:slug/play` – timed quiz (no login required; login only saves history)

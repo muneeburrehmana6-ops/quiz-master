@@ -6,5 +6,6 @@ Disallow: /forgot-password
 Disallow: /profile
 Disallow: /history
 Disallow: /result
+Disallow: /quiz/*/play
 
 Sitemap: https://www.quizmasterlearn.com/sitemap.xml

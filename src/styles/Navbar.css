@@ -4,155 +4,159 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 40px;
-  gap: 20px;
-}
-
-.nav-top {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  padding: 20px 80px;
+  flex-wrap: wrap;
 }
 
 .logo {
   font-size: 28px;
   font-weight: bold;
-  color: white;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 8px 22px;
+  gap: 30px;
   align-items: center;
-  margin: 0;
-  padding: 0;
 }
 
 .nav-links li {
   list-style: none;
 }
 
-.nav-links a,
-.logout-link {
+.nav-links a {
   text-decoration: none;
   color: white;
   font-weight: 500;
-  font-size: 16px;
-  white-space: nowrap;
-  transition: color 0.2s;
+  transition: 0.3s;
 }
 
-.nav-links a:hover,
-.logout-link:hover {
-  color: #fde047;
-}
-
-.logout-link {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-family: inherit;
+.nav-links a:hover {
+  color: yellow;
 }
 
 .dark-btn {
   background: #222;
   color: white;
   border: none;
-  padding: 8px 14px;
+  padding: 8px 15px;
   border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
-  white-space: nowrap;
+  transition: 0.3s;
 }
 
 .dark-btn:hover {
   background: #444;
 }
 
-/* Hamburger button: hidden on desktop */
-.menu-btn {
-  display: none;
-  background: transparent;
+.logout-btn {
+  background: #dc2626;
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  border: none;
+  padding: 10px 18px;
   border-radius: 8px;
-  width: 44px;
-  height: 40px;
-  font-size: 22px;
-  line-height: 1;
   cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
 }
 
-.menu-btn:focus-visible,
-.dark-btn:focus-visible,
-.nav-links a:focus-visible,
-.logout-link:focus-visible {
-  outline: 3px solid #fde047;
-  outline-offset: 2px;
+.logout-btn:hover {
+  background: #b91c1c;
 }
 
-/* Tablet and mobile: collapse the menu behind the ☰ button */
-@media (max-width: 1000px) {
+/* =========================
+   Tablet Responsive
+========================= */
+
+@media (max-width: 992px) {
   .navbar {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 12px 16px;
-    gap: 0;
+    padding: 15px 30px;
   }
 
-  .nav-top {
-    justify-content: space-between;
+  .nav-links {
+    gap: 15px;
   }
 
   .logo {
     font-size: 24px;
   }
 
-  .menu-btn {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    margin-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-links li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  }
-
-  .nav-links a,
-  .logout-link {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 12px 4px;
-    font-size: 17px;
+  .nav-links a {
+    font-size: 15px;
   }
 }
 
-@media (max-width: 400px) {
-  .dark-label {
-    display: none;
+/* =========================
+   Mobile Responsive
+========================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
   }
+
+  .logo {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav-links a,
+  .dark-btn,
+  .logout-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a,
+  .dark-btn,
+  .logout-btn {
+    width: 90%;
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+.logout-link {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: inherit;
+  transition: 0.3s;
+}
+
+.logout-link:hover {
+  color: #ffd700; /* Ya jo hover color tumhare navbar me use ho raha hai */
 }
