@@ -11,6 +11,7 @@ import Quiz from "./pages/Quiz";
 import GroupHub from "./pages/GroupHub";
 import Blog from "./pages/Blog";
 import Article from "./pages/Article";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import Result from "./pages/Result";
 import Login from "./pages/Login";
@@ -63,6 +64,7 @@ function App() {
         {/* Articles */}
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<Article />} />
+        <Route path="/faq" element={<FAQ />} />
 
         {/* Accounts */}
         <Route path="/login" element={<Login />} />

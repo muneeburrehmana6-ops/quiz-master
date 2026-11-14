@@ -20,6 +20,7 @@ function Footer() {
         <Link to="/categories">All Quizzes</Link>
         <Link to="/blog">Articles</Link>
         <Link to="/about">About</Link>
+        <Link to="/faq">FAQ</Link>
         <Link to="/contact">Contact</Link>
         <Link to="/privacy-policy">Privacy Policy</Link>
         <Link to="/terms">Terms &amp; Conditions</Link>

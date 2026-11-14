@@ -6,6 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { categories, groups } from "../src/content/categories.js";
 import { articles } from "../src/content/articles.js";
+import { faqs } from "../src/content/faq.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
@@ -80,6 +81,13 @@ for (const c of categories) {
     body: `<h1>${esc(c.title)} Quiz</h1><p>${esc(c.overview)}</p><h2>What this quiz covers</h2><ul>${c.topics.map((t) => `<li>${esc(t)}</li>`).join("")}</ul><p><strong>Study tip:</strong> ${esc(c.tip)}</p><h2>Questions, answers and explanations</h2>${qa}<p><a href="/quiz/${c.slug}/play">Take the timed quiz</a></p>`,
   });
 }
+
+add("/faq", {
+  title: "Frequently Asked Questions | QuizMaster Learn",
+  description: "Answers to common questions about QuizMaster Learn: how the free quizzes work, how explanations are written, how to report a mistake and how your scores are stored.",
+  priority: "0.6",
+  body: `<h1>Frequently Asked Questions</h1>${faqs.map((f) => `<h2>${esc(f.q)}</h2><p>${esc(f.a)}</p>`).join("")}`,
+});
 
 // ---- trust pages (short summaries; full text is rendered by the app) ----
 const trust = [
