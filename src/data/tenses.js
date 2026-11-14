@@ -193,7 +193,7 @@ const tenses = [
   },
   {
     id: 17,
-    question: "Which sentence is in the Future Simple Tense?",
+    question: "Which of these sentences uses the Future Simple Tense?",
     options: [
       "She is cooking dinner.",
       "She cooked dinner.",

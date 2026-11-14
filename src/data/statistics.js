@@ -186,7 +186,7 @@ const statistics = [
       "12",
       "18",
       "25",
-      "18"
+      "42"
     ],
     answer: "18",
     explanation: "Range = Maximum − Minimum = 30 − 12 = 18."

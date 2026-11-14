@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import "../styles/privacy.css";
+import "../styles/Privacy.css";
 
 function Privacy() {
   return (

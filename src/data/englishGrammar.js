@@ -25,7 +25,7 @@ const englishGrammar = [
   },
   {
     id: 3,
-    question: "Choose the correct sentence.",
+    question: "Choose the correct sentence (present simple, third person).",
     options: [
       "She go to school.",
       "She goes to school.",
@@ -145,7 +145,7 @@ const englishGrammar = [
   },
   {
     id: 13,
-    question: "Choose the correct sentence.",
+    question: "Choose the correct sentence (negative with 'doesn't').",
     options: [
       "He don't like tea.",
       "He doesn't likes tea.",
@@ -205,7 +205,7 @@ const englishGrammar = [
   },
   {
     id: 18,
-    question: "Choose the correct sentence.",
+    question: "Choose the correct sentence ('is' or 'are').",
     options: [
       "There is many books.",
       "There are many books.",

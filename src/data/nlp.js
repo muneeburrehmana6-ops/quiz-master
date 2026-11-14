@@ -227,7 +227,18 @@ const nlp = [
     answer: "To help computers understand human language",
     explanation: "NLP enables computers to understand, interpret, and generate human language."
   },
- 
+  {
+    id: 20,
+    question: "Which NLP task labels each word as a noun, verb, adjective and so on?",
+    options: [
+      "Part-of-speech tagging",
+      "Image segmentation",
+      "Speech synthesis",
+      "Data compression"
+    ],
+    answer: "Part-of-speech tagging",
+    explanation: "Part-of-speech tagging assigns a grammatical category to every word in a sentence."
+  },
 ];
 
 export default nlp;
